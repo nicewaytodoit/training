@@ -1,5 +1,20 @@
 https://gist.github.com/aganglada/64381cc577db5c2a8cd8957179cbdade
 
+import ScriptCache from './ScriptCache';
+
+const cache = ScriptCache({
+    jquery: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js'
+ });
+
+/* global window */
+
+    componentWillMount () {
+        cache.jquery.onLoad((jqu) => {
+           console.log('Blah Blah',JSON.stringify(window.$));
+           window.$("#zeza").html("F*^$^ uuuu!");
+        })
+    }
+
 let counter = 0;
 let scriptMap = new Map();
 
